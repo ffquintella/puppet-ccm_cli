@@ -1,0 +1,1 @@
+puppet strings generate --format markdown --out doc/REFERENCES.md

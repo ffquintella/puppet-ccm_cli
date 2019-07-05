@@ -1,0 +1,48 @@
+{
+  "name": "ffquintella-ccm_cli",
+  "version": "0.1.0",
+  "author": "Felipe Quintella",
+  "summary": "This module installs the cli api and the admin client to the ccm server",
+  "license": "GNU General Public License v3.0",
+  "source": "https://github.com/ffquintella/puppet-ccm_cli",
+  "project_page": "https://github.com/ffquintella/puppet-ccm_cli/wiki",
+  "issues_url": "https://github.com/ffquintella/puppet-ccm_cli/issues",
+  "dependencies": [
+
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.10.0 < 7.0.0"
+    }
+  ],
+  "pdk-version": "1.11.0",
+  "template-url": "pdk-default#1.11.0",
+  "template-ref": "1.11.0-0-g67637d4"
+}
