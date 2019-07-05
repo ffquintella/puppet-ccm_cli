@@ -21,7 +21,7 @@ class ccm_cli::api (
   }
 
   file { $installation_directory:
-    ensure => directory
+    ensure => directory,
   }
 
   file{"${installation_directory}/base_lib.rb":
@@ -31,6 +31,12 @@ class ccm_cli::api (
   file{"${installation_directory}/ccm_lib.rb":
     source  => 'puppet:///modules/ccm_cli/ccm_lib.rb',
     require => File[$installation_directory],
+  }
+  file{"${installation_directory}/ccm_reader.rb":
+    content => epp('ccm_cli/ccm_reader.rb.epp', {
+      'ccm_srv_record'   => $ccm_srv_record,}),
+    require => File[$installation_directory],
+    mode    => '0760',
   }
 
 }

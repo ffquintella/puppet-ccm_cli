@@ -13,9 +13,10 @@ describe 'ccm_cli::api' do
 
       it { is_expected.to compile }
       it { is_expected.to contain_class('ccm_cli::lin::api') }
-      it { is_expected.to contain_file('/usr/srare/ccm') }
-      it { is_expected.to contain_file('/usr/srare/ccm/base_lib.rb') }
-      it { is_expected.to contain_file('/usr/srare/ccm/ccm_lib.rb') }
+      it { is_expected.to contain_file('/usr/share/ccm') }
+      it { is_expected.to contain_file('/usr/share/ccm/base_lib.rb') }
+      it { is_expected.to contain_file('/usr/share/ccm/ccm_lib.rb') }
+      it { is_expected.to contain_file('/usr/share/ccm/ccm_reader.rb') }
       
     end
   end

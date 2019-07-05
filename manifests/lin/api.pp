@@ -6,6 +6,6 @@
 #   include ccm_cli::lin::api
 class ccm_cli::lin::api {
 
-  $installation_directory = '/usr/srare/ccm'
+  $installation_directory = '/usr/share/ccm'
 
 }

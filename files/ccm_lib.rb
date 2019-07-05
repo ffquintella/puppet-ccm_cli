@@ -10,7 +10,7 @@ def url_get(srv_records)
 
   srv_records.collect do |resource|
 
-    url = "https://#{resource.target}/api/ping"
+    url = "https://#{resource.target}:#{resource.port}/api/ping"
     uri = URI(url)
 
     http = Net::HTTP.new(uri.host, uri.port)
@@ -21,7 +21,7 @@ def url_get(srv_records)
     #puts res.body if res.is_a?(Net::HTTPSuccess)
 
     if res.body == "OK"
-      targets.push(resource.target)
+      targets.push("#{resource.target}:#{resource.port}")
       #target = resource.target
       #return target
       #break

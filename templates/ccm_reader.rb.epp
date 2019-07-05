@@ -1,0 +1,44 @@
+<%- |
+      String  $ccm_srv_record,
+| -%>
+#!/usr/bin/ruby
+require './base_lib.rb'
+require './ccm_lib.rb'
+require 'erb'
+require 'base64'
+
+if ARGV.length < 4
+
+puts "Please use ccm_reader.rb <api_token> <credential|configuration> <key> <environment>"
+exit
+
+end
+
+if ARGV[1] != "credential" || ARGV[1] != "credential"
+
+puts "Please use ccm_reader.rb <api_token> <credential|configuration> <key> <environment>"
+exit
+
+end
+
+resources = dns_get('<%= $ccm_srv_record -%>')
+dns = url_get(resources)
+
+puts dns
+
+for i in 0 ... ARGV.length
+   puts "#{i} #{ARGV[i]}"
+end
+
+if ARGV[1] != "credential"
+
+resp = conf_get(dns, ARGV[0],ARGV[2],ARGV[3])
+
+else
+
+resp = pwd_get(dns, ARGV[0],ARGV[2],ARGV[3])
+
+end
+
+puts resp
+
