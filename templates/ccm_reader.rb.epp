@@ -14,7 +14,7 @@ exit
 
 end
 
-if ARGV[1] != "credential" || ARGV[1] != "configuration"
+if ARGV[1] != "credential" && ARGV[1] != "configuration"
 
 puts "Please use ccm_reader.rb <api_token> <credential|configuration> <key> <environment>"
 exit
