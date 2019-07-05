@@ -14,7 +14,7 @@ exit
 
 end
 
-if ARGV[1] != "credential" || ARGV[1] != "credential"
+if ARGV[1] != "credential" || ARGV[1] != "configuration"
 
 puts "Please use ccm_reader.rb <api_token> <credential|configuration> <key> <environment>"
 exit
@@ -24,11 +24,11 @@ end
 resources = dns_get('<%= $ccm_srv_record -%>')
 dns = url_get(resources)
 
-puts dns
+#puts dns
 
-for i in 0 ... ARGV.length
-   puts "#{i} #{ARGV[i]}"
-end
+#for i in 0 ... ARGV.length
+#   puts "#{i} #{ARGV[i]}"
+#end
 
 if ARGV[1] != "credential"
 
