@@ -1,0 +1,63 @@
+<%- |
+      String  $ccm_srv_record,
+      Array   $credentials,
+      Array   $configurations,
+      String  $token,
+      String  $destination_file,
+      String  $template,
+      String  $environment,
+| -%>
+
+require './base_lib.rb'
+require './ccm_lib.rb'
+require 'erb'
+require 'base64'
+
+resources = dns_get('<%= $ccm_srv_record -%>')
+
+configurations = Array.new
+credentials = Array.new
+
+<%
+$credentials.each |String $credential| {
+%>
+credentials.push('<%= $credential -%>')
+<%
+}
+%>
+<%
+$configurations.each |String $conf| {
+%>
+configurations.push('<%= $conf -%>')
+<%
+}
+%>
+
+dns = url_get(resources)
+
+fileDest = ('<%= $destination_file -%>')
+
+template = '<%= $template -%>'
+
+credential = Array.new
+configuration = Array.new
+
+credentials.each do |cred|
+  credential.push(pwd_get(dns,'<%= $token -%>',cred,'<%= $environment -%>' ))
+end
+
+configurations.each do |conf|
+  configuration.push(conf_get(dns,'<%= $token -%>',conf,'<%= $environment -%>' ))
+end
+
+renderer = ERB.new(Base64.decode64(template))
+
+output = renderer.result()
+
+fdest = File.open(fileDest, 'w+')
+
+fdest.write(output)
+
+fdest.close()
+
+#puts values
