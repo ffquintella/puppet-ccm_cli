@@ -1,6 +1,6 @@
 {
   "name": "ffquintella-ccm_cli",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": "Felipe Quintella",
   "summary": "This module installs the cli api and the admin client to the ccm server",
   "license": "GPL-3.0",
