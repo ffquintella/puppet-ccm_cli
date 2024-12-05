@@ -1,3 +1,7 @@
+# Retirement
+
+Since I decided to retire CCM there no logic on keeping updating this module and because of that it will also be retired. 
+
 # ccm_cli
 
 This module installs different ccm client libraries on the system. 
